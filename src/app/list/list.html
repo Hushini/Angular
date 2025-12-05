@@ -1,0 +1,15 @@
+<div class="box">
+  <div class="row">
+    <input type="text" [(ngModel)]="text" (keydown.enter)="add()"/>
+    <button (click)="add()">Dodaj</button>
+  </div>
+  <ul *ngIf="items.length > 0; else empty">
+    <li *ngFor="let item of items; let i = index" class="item">
+      <span>{{ item }}</span>
+      <button class="delete" (click)="remove(i)">Usuń</button>
+    </li>
+  </ul>
+  <ng-template #empty>
+    <p>Lista pusta</p>
+  </ng-template>
+</div>

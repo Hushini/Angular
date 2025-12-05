@@ -1,0 +1,8 @@
+<div class="box">
+  <button (click)="roll()">Losuj</button>
+  <p>Wylosowano: {{ value }}</p>
+  <p class="comment" [class.ok]="isSmall" [class.bad]="!isSmall">
+    {{ message }}
+  </p>
+</div>
+
