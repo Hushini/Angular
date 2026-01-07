@@ -1,0 +1,12 @@
+<header style="padding: 12px 16px; border-bottom: 1px solid #ddd;">
+  <h2 style="margin: 0 0 8px 0;">List</h2>
+
+  <nav style="display: flex; gap: 12px;">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Lista</a>
+    <a routerLink="/add" routerLinkActive="active">Dodaj osobę</a>
+  </nav>
+</header>
+
+<main style="padding: 16px;">
+  <router-outlet></router-outlet>
+</main>

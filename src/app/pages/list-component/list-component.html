@@ -1,0 +1,21 @@
+<h3>Lista osób</h3>
+
+<a routerLink="/add">+ Dodaj osobę</a>
+
+<hr />
+
+@if (persons.length === 0) {
+  <p>Brak zapisanych osób.</p>
+} @else {
+  <ul>
+    @for (p of persons; track $index) {
+      <li style="display:flex; gap:12px; align-items:center;">
+        <a [routerLink]="['/details', $index]">
+          {{ p.firstName }} {{ p.familyName }} (wiek: {{ p.age }})
+        </a>
+
+        <button type="button" (click)="delete($index)">Usuń</button>
+      </li>
+    }
+  </ul>
+}

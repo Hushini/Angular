@@ -1,0 +1,18 @@
+<h3>Szczegóły osoby</h3>
+
+<p><a routerLink="/">← Wróć do listy</a></p>
+
+@if (!person) {
+  <p>Nie znaleziono osoby (id: {{ id }}).</p>
+} @else {
+  <ul>
+    <li><b>Imię:</b> {{ person.firstName }}</li>
+    <li><b>Nazwisko:</b> {{ person.familyName }}</li>
+    <li><b>Wiek:</b> {{ person.age }}</li>
+    <li>
+      <b>Adres:</b>
+      {{ person.address?.city }}, {{ person.address?.street }},
+      {{ person.address?.postCode }}
+    </li>
+  </ul>
+}
