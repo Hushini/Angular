@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+
 import { Person } from '../../models/person';
 import { PersonService } from '../../services/person';
 
 @Component({
   selector: 'app-details-component',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, MatCardModule, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './details-component.html',
   styleUrl: './details-component.css',
 })

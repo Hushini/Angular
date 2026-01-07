@@ -1,21 +1,25 @@
-<h3>Lista osób</h3>
+<div style="display:flex; align-items:center; gap:12px;">
+  <h3 style="margin:0;">Lista osób</h3>
+  <span style="flex:1;"></span>
+  <a mat-raised-button color="primary" routerLink="/add">Dodaj osobę</a>
+</div>
 
-<a routerLink="/add">+ Dodaj osobę</a>
-
-<hr />
+<mat-divider style="margin: 12px 0;"></mat-divider>
 
 @if (persons.length === 0) {
   <p>Brak zapisanych osób.</p>
 } @else {
-  <ul>
+  <mat-nav-list>
     @for (p of persons; track $index) {
-      <li style="display:flex; gap:12px; align-items:center;">
-        <a [routerLink]="['/details', $index]">
+      <div style="display:flex; align-items:center;">
+        <a mat-list-item [routerLink]="['/details', $index]">
           {{ p.firstName }} {{ p.familyName }} (wiek: {{ p.age }})
         </a>
 
-        <button type="button" (click)="delete($index)">Usuń</button>
-      </li>
+        <button mat-icon-button color="warn" type="button" (click)="delete($index)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     }
-  </ul>
+  </mat-nav-list>
 }

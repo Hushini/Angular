@@ -1,18 +1,34 @@
-<h3>Szczegóły osoby</h3>
+<mat-card style="max-width: 560px;">
+  <mat-card-title>Szczegóły osoby</mat-card-title>
+  <mat-card-subtitle>ID: {{ id }}</mat-card-subtitle>
 
-<p><a routerLink="/">← Wróć do listy</a></p>
+  <div style="margin: 12px 0;">
+    <button
+      mat-stroked-button
+      color="primary"
+      type="button"
+      [disableRipple]="true"
+      routerLink="/"
+    >
+      <mat-icon aria-hidden="true">arrow_back</mat-icon>
+      Wróć do listy
+    </button>
+  </div>
 
-@if (!person) {
-  <p>Nie znaleziono osoby (id: {{ id }}).</p>
-} @else {
-  <ul>
-    <li><b>Imię:</b> {{ person.firstName }}</li>
-    <li><b>Nazwisko:</b> {{ person.familyName }}</li>
-    <li><b>Wiek:</b> {{ person.age }}</li>
-    <li>
-      <b>Adres:</b>
-      {{ person.address?.city }}, {{ person.address?.street }},
-      {{ person.address?.postCode }}
-    </li>
-  </ul>
-}
+  <mat-divider inset></mat-divider>
+
+  <div style="margin-top: 12px;">
+    @if (!person) {
+      <p>Nie znaleziono osoby (id: {{ id }}).</p>
+    } @else {
+      <p><b>Imię:</b> {{ person.firstName }}</p>
+      <p><b>Nazwisko:</b> {{ person.familyName }}</p>
+      <p><b>Wiek:</b> {{ person.age }}</p>
+      <p>
+        <b>Adres:</b>
+        {{ person.address?.city }}, {{ person.address?.street }},
+        {{ person.address?.postCode }}
+      </p>
+    }
+  </div>
+</mat-card>
